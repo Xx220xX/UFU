@@ -1,0 +1,6 @@
+Medidas obtidas com neutro conectado
+"fase" = a b c
+"I\(_f\)" = 0.9 - - 
+"I\(_L\)[A](medido)" = 1.564 1.543 1.512 
+"I\(_L\)[A](esperad)" = 1.559 1.559 1.559
+"erros [\%]" = 0.32 1.03 3.01

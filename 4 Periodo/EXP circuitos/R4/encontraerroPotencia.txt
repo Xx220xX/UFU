@@ -1,0 +1,11 @@
+Potências calculadas e medidas
+" -" = estrela delta
+"V\(_L\)[V]" = 101.40 100
+"I\(_L\)[A]"   0.495 1.543
+"\(\Theta[^\circ]\)"   56.77 56.22 
+"P\(_T\)(medida)[W]"  50.82 149.50
+"P\(_T\)(calculada)[W]" 47.64 148.6
+"Q\(_T\)[Var]" = 73.95 223.4
+"Q\(_T\)(calculado)[Var]" = 72.72 222.14
+"S\(_T\)[VA]" = 90.13 268.4
+"S\(_T\)(calculado)[VA]" = 86.94 267.26
