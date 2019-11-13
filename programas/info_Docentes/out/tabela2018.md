@@ -22,7 +22,7 @@ Diversas Pesquisa Div |
 | Antônio Carlos Delaiba | Pesquisa
 Diversas Pesquisa Div |
 | Antônio Cláudio Paschoarelli Veiga | 4 4 3 |
-| Arthur Costa de Souza | Nao possui arquivo |
+| Arthur Costa de Souza | Nao possui arquivo 2018 - 2.|
 | Augusto Wohlgemuth Fleury Veloso da Silveira | 20 |
 | Carlos Augusto Bissochi Junior | Pesquisa
 Diversas Pesquisa Div |
@@ -34,9 +34,9 @@ Diversas Pesquisa Div |
 | Davi Sabbag Roveri | 6 5 4 |
 | Diego de Brito Piau | Pesquisa
 Diversas Pesquisa Div |
-| Éder Alves de Moura | Nao possui arquivo |
+| Éder Alves de Moura | Nao possui arquivo 2018 - 2.|
 | Éderson Rosa da Silva | 4 4 4 |
-| Edgard Afonso Lamounier Júnior | Nao possui arquivo |
+| Edgard Afonso Lamounier Júnior | Nao possui arquivo 2018 - 2.|
 | Eduardo Lázaro Martins Naves | 4 2 6 1 |
 | Elise Saraiva | Pesquisa
 Diversas Pesquisa Div |
@@ -51,13 +51,13 @@ Diversas Pesquisa Div |
 | Igor Santos Peretta | 4 |
 | Isaque Nogueira Gondim |  |
 | Ivan Nunes Santos |  |
-| Jeovane Vicente de Sousa | Nao possui arquivo |
+| Jeovane Vicente de Sousa | Nao possui arquivo 2018 - 2.|
 | João Batista Destro Filho |  |
 | José Roberto Camacho | Pesquisa
 Diversas Pesquisa Div |
 | José Rubens Macedo Júnior |  |
 | Josué Silva de Morais |  |
-| Júlio Cézar Coelho | Nao possui arquivo |
+| Júlio Cézar Coelho | Nao possui arquivo 2018 - 2.|
 | Karine Barbosa Carbonaro |  |
 | Keiji Yamanaka |  |
 | Kil Jin Brandini Park | 4 4 4 |
@@ -69,17 +69,17 @@ Diversas Pesquisa Div |
 Diversas Pesquisa D |
 | Luiz Carlos Gomes de Freitas |  |
 | Marcelo Barros de Almeida |  |
-| Marcelo Rodrigues de Sousa | Nao possui arquivo |
+| Marcelo Rodrigues de Sousa | Nao possui arquivo 2018 - 2.|
 | Márcio José da Cunha |  |
 | Milena Bueno Pereira Carneiro | 4 4 4 |
 | Paulo Henrique Oliveira Rezende |  |
 | Paulo Roberto Guardieiro | 4 4 3 3 |
 | Pedro Luiz Lima Bertarini | 4452 |
-| Priscila Crisfir Almeida Diniz | Nao possui arquivo |
-| Renan Alves dos Santos | Nao possui arquivo |
+| Priscila Crisfir Almeida Diniz | Nao possui arquivo 2018 - 2.|
+| Renan Alves dos Santos | Nao possui arquivo 2018 - 2.|
 | Renato Ferreira Fernandes Júnior | 6 6 |
 | Renato Santos Carrijo | 2 2 3 1 2 |
-| Sebastião Camargo Guimarães Júnior | Nao possui arquivo |
+| Sebastião Camargo Guimarães Júnior | Nao possui arquivo 2018 - 2.|
 | Selma Terezinha Milagre | Pesquisa
 Diversas Pesquisa Div |
 | Sérgio Ferreira de Paula Silva | 6 2 |

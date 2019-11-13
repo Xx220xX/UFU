@@ -14,7 +14,7 @@
 | Aniel Silva de Morais | +55 34 3239-4749 | aniel@ufu.br | Professor Efetivo  | Engenharia de Controle e Automação | [link]("http://lattes.cnpq.br/8844251698422960") |
 | Antônio Carlos Delaiba | +55 34 3239-4716 | delaiba@ufu.br | Professor Efetivo  | Engenharia Elétrica | [link]("http://lattes.cnpq.br/8714968872103279") |
 | Antônio Cláudio Paschoarelli Veiga | +55 34 3239-4717 | acpveiga@ufu.br | Professor Efetivo  | Engenharia Eletrônica e de Telecomunicações Santa Mônica | [link]("http://lattes.cnpq.br/2835416571685218") |
-| Arthur Costa de Souza | None | arthurcosta@ufu.br | Professor Substituto  | None | [link]("http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4316071J3") |
+| Arthur Costa de Souza |  -  | arthurcosta@ufu.br | Professor Substituto  |  -  | [link]("http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4316071J3") |
 | Augusto Wohlgemuth Fleury Veloso da Silveira | +55 34 3239-4766 | augustofleury@ufu.br | Professor Efetivo  | Engenharia Elétrica | [link]("http://lattes.cnpq.br/0283876707718262") |
 | Carlos Augusto Bissochi Junior | +55 34 3239-4719 | cabjunior@ufu.br | Professor Efetivo  | Engenharia de Controle e Automação | [link]("http://lattes.cnpq.br/3674269727266520") |
 | Carlos Eduardo Tavares | +55 34 3239-4772 | cetavares@ufu.br | Professor Efetivo  | Engenharia Elétrica | [link]("http://lattes.cnpq.br/1493379294936870") |
@@ -62,11 +62,11 @@
 | Paulo Henrique Oliveira Rezende | +55 34 3239-4785 | paulohenrique.rezende@ufu.br | Professor Efetivo  | Engenharia Elétrica | [link]("http://lattes.cnpq.br/2338311941319569") |
 | Paulo Roberto Guardieiro | +55 34 3239-4747 | prguardieiro@ufu.br | Professor Efetivo  | Engenharia Eletrônica e de Telecomunicações Santa Mônica | [link]("http://lattes.cnpq.br/4115942565606954") |
 | Pedro Luiz Lima Bertarini | +55 34 3821-0588 | pbertarini@yahoo.com.br | Professor Efetivo  | Engenharia Eletrônica e de Telecomunicações Patos de Minas | [link]("http://lattes.cnpq.br/6101890440707894") |
-| Priscila Crisfir Almeida Diniz | +55 34 3821-0588 | priscilacrisfir@gmail.com | Professor Substituto  | None | [link]("http://lattes.cnpq.br/8247950944002033") |
+| Priscila Crisfir Almeida Diniz | +55 34 3821-0588 | priscilacrisfir@gmail.com | Professor Substituto  |  -  | [link]("http://lattes.cnpq.br/8247950944002033") |
 | Renan Alves dos Santos | +55 34 3825-8871 | renans@ufu.br | Professor Efetivo  | Engenharia Eletrônica e de Telecomunicações Patos de Minas | [link]("http://lattes.cnpq.br/0181780491504693") |
 | Renato Ferreira Fernandes Júnior | +55 34 3239-4781 | rffernandes@ufu.br | Professor Efetivo  | Engenharia de Controle e Automação | [link]("http://lattes.cnpq.br/0072425749854092") |
 | Renato Santos Carrijo | +55 34 3239-4768 | rscarrijo@ufu.br | Professor Efetivo  | Engenharia de Controle e Automação | [link]("http://lattes.cnpq.br/8768171533090080") |
-| Sebastião Camargo Guimarães Júnior | +55 34 3239-4701 | scguimaraes@ufu.br | Professor Voluntário  | None | [link]("http://lattes.cnpq.br/4375583997660468") |
+| Sebastião Camargo Guimarães Júnior | +55 34 3239-4701 | scguimaraes@ufu.br | Professor Voluntário  |  -  | [link]("http://lattes.cnpq.br/4375583997660468") |
 | Selma Terezinha Milagre | +55 34 3239-4726 | selma.milagre@ufu.br | Professor Efetivo  | Engenharia Biomédica | [link]("http://lattes.cnpq.br/4980687835840176") |
 | Sérgio Ferreira de Paula Silva | +55 34 3239-4712 | s.ferreiradepaula@ufu.br | Professor Efetivo  | Engenharia Elétrica | [link]("http://lattes.cnpq.br/7218109563951203") |
 | Sérgio Ricardo de Jesus Oliveira | +55 34 3239-4713 | srjesus@ufu.br | Professor Efetivo  | Engenharia Biomédica | [link]("http://lattes.cnpq.br/1434903162665776") |
