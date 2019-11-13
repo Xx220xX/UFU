@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup  # pip install bs4
 import re
 import pickle
+import time
 
 index = 0
 
@@ -85,6 +86,7 @@ class Docente:
 
 
 def extrair_docentes(html):
+    ti = time.time()
     profs = []
     # pegar div dos docentes
     soup = BeautifulSoup(html.content, 'html.parser')
@@ -127,4 +129,5 @@ def extrair_docentes(html):
             Docente(name, status, lates, email, telefone, link_arquivos_docente, faculdade, ).getPlanoDocente())
         print('.', end='')
     print('\nDados extraídos')
+    print(f'Tempo gasto {time.time() - ti} s')
     return profs

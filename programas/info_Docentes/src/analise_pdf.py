@@ -20,7 +20,7 @@ def square(x_botom, y_botom, x_top, y_top, mm=True):
     return '%s, %s, %s, %s' % (x_botom, y_botom, x_top, y_top)
 
 
-profs = Docente.load_list('Docentes/profs.bin')  # le a lista de Docentes
+profs = Docente.load_list('../out/Docentes/profs.bin')  # le a lista de Docentes
 prof = profs[0]
 
 # usar o modulo
@@ -28,23 +28,30 @@ prof = profs[0]
 # pdf = read_pdf('Docentes/' + prof.name + '/2018 - 2.pdf')
 
 # pdfquery
+file = open('../out/tabela_extract.md','w',encoding='utf-8')
+print('| Nome | total de aulas |',file=file)
+print('| :---- | :---- |',file=file)
 for prof in profs:
     try:
-        pdf = pdfquery.PDFQuery('Docentes/' + prof.name + '/2018 - 2.pdf')
+        pdf = pdfquery.PDFQuery('../out/Docentes/' + prof.name + '/2018 - 2.pdf')
     except FileNotFoundError:
         print(f'{prof.name} não possui informaçao')
+        print(f'| {prof.name} | Nao possui arquivo |', file=file)
+
         continue
     pdf.load(0)
 # txt = pdf.extract([('ola','LTTextLineHorizontal:in_bbox("128,86,109,81")')])
-    print(pdf._pages)
+#     print(pdf._pages)
     a = pdf.extract([('with_formatter', 'text'),\
                  ('total de aulas', f':in_bbox("{square(100, 131, 137, 81)}")')])
                 # ('2', f'LTTextLineHorizontal:in_bbox("{square(10, 91, 90, 55)}")'),\
                 # ('3', f'LTTextLineHorizontal:in_bbox("{square(10, 131, 283, 81)}")')])
     print(prof.name)
-    for k,v in a.items():
-        print(k,":",v)
-    break
+    print(f'| {prof.name} | {a["total de aulas"][:len(a["total de aulas"])//2]} |',file=file)
 
+    # for k,v in a.items():
+    #     print(k,":",v)
+    # break
+file.close()
 #print(capturarDado('>[\w\s]+<',str(a['1']),1,-1))
 
