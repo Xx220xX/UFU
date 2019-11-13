@@ -17,11 +17,10 @@ else:
 
 print('extraindo dados')
 profs = extrair_docentes(site_Feelt)
-"""
 # printar aquivos
+
 with open('output.txt', 'w', encoding='utf-8') as file:
     file.write(re.sub(r'[\[\]]|(,\x20)', '\n', str(profs)))
-"""
 print('Salvando dados')
-Docente.salve_list(profs,'Docentes/profs.bin')
+Docente.salve_list(profs,'../out/Docentes/profs.bin')
 print('Programa finalizado')

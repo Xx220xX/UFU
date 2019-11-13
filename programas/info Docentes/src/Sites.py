@@ -11,8 +11,6 @@ def capturarDado(padrao, input_str, inicio, fim):
     try:
         dado = dado.group(0)[inicio:fim].strip()
     except AttributeError:
-        print(input_str)
-        print('     falha');
         return None
     return dado
 
@@ -42,6 +40,9 @@ class Docente:
             if v is not None:
                 s += f'{k} : {v}\n'
         return s + '\n'
+
+    def tableMarkdown(self):
+        return f'| {self.name} |{self.status} |{self.lates} |{self.email} |{self.faculdade} |{self.telefone} |'
 
     def getPlanoDocente(self):
         # Verificacao de segurnca
