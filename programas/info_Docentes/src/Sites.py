@@ -43,7 +43,7 @@ class Docente:
         return s + '\n'
 
     def tableMarkdown(self):
-        return f'| {self.name} | {self.telefone} | {self.email} | {self.status}  | {self.faculdade} | [link]("{self.lates}") |'
+        return f'| {self.name} | {self.telefone} | {self.email} | {self.status}  | {self.faculdade} | [link]({self.lates}) |'
 
     def getPlanoDocente(self):
         # Verificacao de segurnca
