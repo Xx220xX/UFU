@@ -11,7 +11,7 @@ clear; clc; close all;
     
     % parte 3: plota informacoes sinal A
     figure;
-    subplot(2,1,1); plot(eixo_tempo_A, sinal_A); title('Sinal A'); xlabel('tempo (s)'); ylabel('Amplitude');
+    subplot(2,1,1);plot(eixo_tempo_A, sinal_A); title('Sinal A'); xlabel('tempo (s)'); ylabel('Amplitude');
     espectro_sinal_A = fft(sinal_A);
     eixo_frequencia_sinal_A = eixo_n*(Fs_A/numero_amostras_sinal_A); % esta parte não é estudada no nosso curso
     espectro_de_magnitude = abs(espectro_sinal_A);

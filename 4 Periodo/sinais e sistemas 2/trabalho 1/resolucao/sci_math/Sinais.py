@@ -1,9 +1,16 @@
-import math, re, matplotlib.pyplot as plt, numpy
+import math
+import numpy
+import re
+
 
 def Polinomio(*roots, cte=1):
     if cte != 1:
         return [cte * i for i in numpy.polynomial.polynomial.polyfromroots(list(roots))]
     return numpy.polynomial.polynomial.polyfromroots(list(roots))
+
+
+def gama(t):
+    return int(t == 0)
 
 
 def db(h):
@@ -36,6 +43,7 @@ def system(a: list, b: list):
     :param b:
     :return:
     """
+
     def H(w):
         num, den = 0, 0
         for i in range(len(a)):
@@ -43,7 +51,9 @@ def system(a: list, b: list):
         for i in range(len(b)):
             den += b[i] * (1j * w) ** i
         return num / den
+
     return H
+
 
 def bodeAssintotico(a: list, b: list, wlim: list = (0.1, 100), poits=300):
     """
