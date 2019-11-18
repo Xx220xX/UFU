@@ -1,31 +1,15 @@
 import cmath
-from math import *
-
-
-def s2c(c: str):
-    if isinstance(c, (float, int)):
-        return c
-    c = c.split('|', 1)
-    if len(c) == 0:
-        c = [0, 0]
-    elif len(c) == 1:
-        c.append(0)
-    c = [float(i) for i in c]
-    c[1] = c[1] * pi / 180
-    return complex(round(c[0] * cos(c[1]), 10), round(c[0] * sin(c[1]), 10))
-
-
-def pc(c: complex, precisao=4):
-    return f'%.{precisao}g|%.{precisao}g°' % (abs(c), cmath.phase(c) * 180 / pi)
+from libs import *
 
 
 class Circuito:
-    def __init__(self, IL: (tuple, list), VL: (tuple, list) = None, Vn: (tuple, list) = None):
+    def __init__(self, name, IL: (tuple, list), VL: (tuple, list) = None, Vn: (tuple, list) = None):
         if VL == Vn is None or (VL is not None and len(VL) != 3) or (Vn is not None and len(Vn) != 3):
             raise AttributeError('I need more info')
         self.ia = s2c(IL[0])
         self.ib = s2c(IL[1])
         self.ic = s2c(IL[2])
+        self.name = name
         if VL is not None:
             self.eab = s2c(VL[0])
             self.ebc = s2c(VL[1])
@@ -43,7 +27,7 @@ class Circuito:
 
     def __repr__(self):
         return f'   {self.seq}\n   ia, ib, ic = ({pc(self.ia)}) , ({pc(self.ib)}) , ({pc(self.ic)})\n' + \
-               f'   Eab , Ebc, Ecb = ({pc(self.eab)}) , ({pc(self.ebc)}) , ({pc(self.eca)})\n'
+               f'   Eab , Ebc, Ecb = ({pc(self.eab)}) , ({pc(self.ebc)}) , ({pc(self.eca)})'
 
     def __getitem__(self, item: slice):
         r = [item.start, item.stop, item.step]
@@ -127,10 +111,11 @@ class Circuito:
         v['i '] = i
         v['j '] = j
         v['k '] = k
-        v[f'w[ik]:[{i + k}]'] = (self['V':i:k] * self['i':i].conjugate()).real
-        v[f'w[jk]:[{j + k}]'] = (self['V':j:k] * self['i':j].conjugate()).real
-        v[f'w[ij]:[{i + j}]'] = (self['V':i:j] * self['i':i].conjugate()).real
-        v[f'w[ji]:[{j + i}]'] = (self['V':j:i] * self['i':j].conjugate()).real
+        v[f'w[ik]:[{i + k}]'] = float((self['V':i:k] * self['i':i].conjugate()).real)
+        v[f'w[jk]:[{j + k}]'] = float((self['V':j:k] * self['i':j].conjugate()).real)
+        v[f'w[ij]:[{i + j}]'] = float((self['V':i:j] * self['i':i].conjugate()).real)
+        v[f'w[ji]:[{j + i}]'] = float((self['V':j:i] * self['i':j].conjugate()).real)
+        v['  '] = ''
         v['P[w]'] = v[f'w[ik]:[{i + k}]'] + v[f'w[jk]:[{j + k}]']
         v['Q[var]'] = (3 ** -0.5) * (
                 2 * (v[f'w[ji]:[{j + i}]'] - v[f'w[ij]:[{i + j}]']) + v[f'w[ik]:[{i + k}]'] - v[f'w[jk]:[{j + k}]'])
@@ -139,27 +124,31 @@ class Circuito:
         v[f'w[{j + k}]'] = f"Re({pc(self['V':j:k])} * {pc(self['i':j].conjugate())})"
         v[f'w[{i + j}]'] = f"Re({pc(self['V':i:j])} * {pc(self['i':i].conjugate())})"
         v[f'w[{j + i}]'] = f"Re({pc(self['V':j:i])} * {pc(self['i':j].conjugate())})"
-        v['P[w]_'] = f"{v[f'w[ik]:[{i + k}]']} + {v[f'w[jk]:[{j + k}]']}"
+        v['P[w] = '] = f"{pc(v[f'w[ik]:[{i + k}]'])} + {pc(v[f'w[jk]:[{j + k}]'])}"
         v[
-            'Q[var]_'] = f"(3^-0.5) * (2 * ({v[f'w[ji]:[{j + i}]']} - {v[f'w[ij]:[{i + j}]']}) + {v[f'w[ik]:[{i + k}]']} - {v[f'w[jk]:[{j + k}]']})"
-
+            'Q[var] ='] = f"(3^-0.5) * (2 * ({pc(v[f'w[ji]:[{j + i}]'])} - {pc(v[f'w[ij]:[{i + j}]'])}) + {pc(v[f'w[ik]:[{i + k}]'])} - {pc(v[f'w[jk]:[{j + k}]'])})"
         return v
-    def prt(self,i1,i2):
+
+    def prt(self, i1, i2):
         s = ''
         mx = 0
         it = self.w(i1, i2).items()
         for k, v in it:
             mx = max(len(k), mx)
         for k, v in it:
-            s += k + ' ' * (mx - len(k) + 1) + f'{v}\n'
-        return s
+            s += k + ' ' * (mx - len(k) + 1) + f'{pc(v)}\n'
+        return s[:-1]
 
-a = Circuito(('43.5|116.6', '43.3|-48', '11.9|-114.2'), VL=('220|120', '220|0', '220|-120'))
+
+a = Circuito('barba gelata exercicio 1 da lista', ('43.5|116.6', '43.3|-48', '11.9|-114.2'),
+             VL=('220|120', '220|0', '220|-120'))
 # a = Circuito(('32.79|-5.55', '29.08|-178.13', '5.5|130.65'), VL=('208|0', '208|-120', '208|120'))
 
-with open('out/barba gelata exercicio 1 da lista.txt', 'w', encoding='utf-8') as f:
-    print(a,file=f)
-    print(a.prt('a','b'),file=f)
-    print(a.prt('b','c'),file=f)
-    print(a.prt('c','a'),file=f)
-    print('_' * 60, file=f)
+with open('out/' + a.name + '.txt', 'w', encoding='utf-8') as f:
+    print(a, file=f)
+    print('-' * 60, file=f)
+    print(a.prt('a', 'b'), file=f)
+    print('-' * 60, file=f)
+    print(a.prt('b', 'c'), file=f)
+    print('-' * 60, file=f)
+    print(a.prt('c', 'a'), file=f)
