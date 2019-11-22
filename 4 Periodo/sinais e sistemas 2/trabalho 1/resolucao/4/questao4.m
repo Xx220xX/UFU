@@ -10,7 +10,9 @@ eixo_tempo = eixo_n*(1/Fs) ;
 espectro_sinal = fft(sinal);
 eixo_frequencia_sinal = eixo_n*(Fs/numero_amostras_sinal); % esta parte não é estudada no nosso curso
 espectro_de_magnitude = abs(espectro_sinal);
-%plot(eixo_frequencia_sinal, espectro_de_magnitude); title('espectro Sinal A'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
+tam = floor(length(eixo_frequencia_sinal)/2);
+
+plot(eixo_frequencia_sinal(1:tam), espectro_de_magnitude(1:tam)); title('espectro Sinal A'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
 
 %% PASSO 3: projeta os coeficientes dos filtros. Sao dois filtros no caso. Filtro 1 e 2. 
 % passo 3.1: projeta filtro 1
@@ -33,5 +35,5 @@ musica_filtrada_sis1 = filter(b1, a1, sinal);
 musica_filtrada_sis2 = filter(b2, a2, sinal);
 
 %% PASSO 5: gera audio filtrado pelos respectisos sistemas
-audiowrite('arquivo_gerado_musica_filtrada_q4_sis1.wav',musica_filtrada_sis1,Fs);
-audiowrite('arquivo_gerado_musica_filtrada_q4_sis2.wav',musica_filtrada_sis2,Fs);
+audiowrite('out/arquivo_gerado_musica_filtrada_q4_sis1.ogg',musica_filtrada_sis1,Fs);
+audiowrite('out/arquivo_gerado_musica_filtrada_q4_sis2.ogg',musica_filtrada_sis2,Fs);
