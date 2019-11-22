@@ -16,7 +16,9 @@ clear; clc; close all;
     eixo_frequencia_sinal_A = eixo_n*(Fs_A/numero_amostras_sinal_A); % esta parte não é estudada no nosso curso
     espectro_de_magnitude = abs(espectro_sinal_A);
     subplot(2,1,2); plot(eixo_frequencia_sinal_A, espectro_de_magnitude); title('espectro Sinal A'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
-
+    saveas(gcf,'out/a1.png')
+    figure;
+    plot(eixo_frequencia_sinal_A, espectro_de_magnitude); title('espectro Sinal A'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
 %% PROCESSA SINAL B
     % parte  1: importa sinais e seus valores de taxa de aquisicao Fs (todo arquivo tem que vir a taxa indicando qual foi a Fs usada pra discretizar o sinal)
     [sinal_B, Fs_B] = audioread('sinal_questao3b.wav');
@@ -26,7 +28,6 @@ clear; clc; close all;
     numero_amostras_sinal_B = length(sinal_B);
     eixo_n = (0:numero_amostras_sinal_B-1);  
     eixo_tempo_B = eixo_n*(1/Fs_B) ;  %estou aplicando a formula t=n*Ts onde Ts=1/Fs
-        
     % parte 3: plota informacoes sinal A
     figure;
     subplot(2,1,1); plot(eixo_tempo_B, sinal_B); title('Sinal B'); xlabel('tempo (s)'); ylabel('Amplitude');
@@ -34,3 +35,19 @@ clear; clc; close all;
     eixo_frequencia_sinal_B = eixo_n*(Fs_B/numero_amostras_sinal_B); % esta parte não é estudada no nosso curso
     espectro_de_magnitude = abs(espectro_sinal_B);
     subplot(2,1,2); plot(eixo_frequencia_sinal_B, espectro_de_magnitude);  title('espectro Sinal B'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
+    saveas(gcf,'out/a2.png')
+
+    
+%% b) 
+clc;
+clear;
+close all;
+%sinal em 2000 a 2800
+[sinal, Fs] = audioread('sinal_questao3b.wav');
+s1 = sinal(2000:2800);
+n1 = 0:length(s1)-1;
+S1 = fft(s1);
+f1 = n1*(Fs/length(s1));
+subplot(2,1,1); plot(n1/Fs, s1); title('Sinal B entre 0.25 a 0.35'); xlabel('tempo (s)'); ylabel('Amplitude');
+subplot(2,1,2); plot(f1, abs(S1));  title('espectro Sinal B'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
+
