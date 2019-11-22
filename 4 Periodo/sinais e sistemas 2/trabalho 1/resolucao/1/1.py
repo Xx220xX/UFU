@@ -22,6 +22,6 @@ def GerarGraficos(a: list, b: list, file):
         plt.clf()
 
 
-GerarGraficos(Sinais.Polinomio(-1, cte=640), Sinais.Polinomio(-8, -40), 'out/Grafico de bode H1 ')
-GerarGraficos(Sinais.Polinomio(-40, cte=0.01), Sinais.Polinomio(-1, -8), 'out/Grafico de bode H2 ')
-GerarGraficos([6.4], Sinais.Polinomio(-8, -8), 'out/Grafico de bode Ht ')
+GerarGraficos(Sinais.Polinomio(-1, cte=640), Sinais.Polinomio(-8, -40), 'out/Grafico_de_bode_H1_')
+GerarGraficos(Sinais.Polinomio(-40, cte=0.01), Sinais.Polinomio(-1, -8), 'out/Grafico_de_bode_H2_')
+GerarGraficos([6.4], Sinais.Polinomio(-8, -8), 'out/Grafico_de_bode_Ht_')

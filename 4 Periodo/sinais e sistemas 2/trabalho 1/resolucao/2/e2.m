@@ -17,11 +17,20 @@ f = [2.8e3 2.9e3 3.1e3 3.2e3 4.9e3 5e3];% distancias da transicoes
 a = [1 0 1 0];         % porcentagem de amplitudes desejadas
 od = 1e-3;
 dev = [od od od od]; % ondulacao permitida
-[n, fo, ao, w] = firpmord (f, a, dev, fs);
-sist = firpm (n, fo, ao, w);
+[n_, fo, ao, w] = firpmord (f, a, dev, fs);
+sist = firpm (n_, fo, ao, w);
 freqz (sist, 1.1024, fs)
 title ( 'Filtro para frequências de 3kHz e 5kHz' )
 
 %% c)-
+figure;
+%clear -regexp  '[^([x|t|n|(sist)|(fs)])]'
 y = conv(x,sist,'same');
+Y = fft(y);
+w = n *(fs/length(y));
+subplot(2,1,1);plot(t, y); title('Sinal y(t)'); xlabel('tempo (s)'); ylabel('Amplitude'); 
+subplot(2,1,2);plot(w, abs(Y)); title('espectro Sinal Y(t)'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
+title ( 'Sinal filtrado')
+
+
 
