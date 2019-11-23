@@ -21,7 +21,7 @@ dev = [od od od od]; % ondulacao permitida
 [n_, fo, ao, w] = firpmord (f, a, dev, fs);
 sist = firpm (n_, fo, ao, w);
 freqz (sist, 1.1024, fs)
-title ( 'Filtro para frequências de 3kHz e 5kHz' )
+title ( 'Filtro para frequencias de 3kHz e 5kHz' )
 saveas(gcf,'b.png')
 %% c)-
 figure;
@@ -31,7 +31,8 @@ Y = fft(y);
 w = n *(fs/length(y));
 subplot(2,1,1);plot(t, y); title('Sinal filtrado'); xlabel('tempo (s)'); ylabel('Amplitude');
 subplot(2,1,2);plot(w, abs(Y)); title('espectro Sinal Y(t)'); xlabel('Freq (Hz)'); ylabel('Amplitude (linear)');
-title ( 'Espectro do sinal filtrado')
-saveas(gcf,'c.png')
-%system('pause');
+title ( 'Espectro do sinal filtrado');
+saveas(gcf,'c.png');
+disp('ola');
+input('pause');
 

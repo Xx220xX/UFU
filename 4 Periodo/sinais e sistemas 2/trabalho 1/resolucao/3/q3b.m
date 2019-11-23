@@ -1,0 +1,10 @@
+clc;
+clear;
+close all;
+[sinal, fs] = audioread('input/sinal_questao3b.wav');
+analisaTmp(sinal,fs,[2100,2800]);
+analisaTmp(sinal,fs,[3700,4500]);
+analisaTmp(sinal,fs,[5300,6000]);
+analisaTmp(sinal,fs,[6900,7600]);
+analisaTmp(sinal,fs,[8400,9300]);
+analisaTmp(sinal,fs,[10100,10800]);
