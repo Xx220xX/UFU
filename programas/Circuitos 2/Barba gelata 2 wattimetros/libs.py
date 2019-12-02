@@ -5,6 +5,7 @@ import numpy as np
 
 
 def s2c(c: str):
+
     if isinstance(c, (float, int, complex)):
         return c
     if not isinstance(c, str):
@@ -28,7 +29,35 @@ def pc(c: complex, precisao=4):
         return c
     return f'%.{precisao}g|%.{precisao}f°' % (abs(c), cmath.phase(c) * 180 / pi)
 
+def plotFasor(c,name,color = (255,255,255)):
+    if isinstance(color,str):
+        color = {'verde':(0,255,0),
+                 'verde1':(50,205,50),
+                 'verde2':(34,139,34),
+                 'verde3':(0,128,0),
+                 'verde4':(0,100,0),
+                 'verdel':(0,250,154),
+                 'verdel1':(0,255,127),
 
+                 'azul':(0,0,255),
+                 'azul1':(0,0,205),
+                 'azul2':(0,0,139),
+                 'azul3':(105,89,205),
+                 'azul4':(131,111,255),
+                 'azull':(0,255,255),
+                 'azull1':(0,206,209),  
+                 
+                 'vermelho':(255,0,0),
+                 'vermelho1':(178,34,34),
+                 'vermelho2':(220,20,60),
+                 'vermelho3':(233,150,122),
+                 
+                 'amarelo':(255,255,0),
+                 'amarelo1':(255,215,0),
+                 'laranja':(255,140,0),
+                 'laranja1':(255,165,0),
+                 }[color]
+    return f'fasor.add("{name}",{abs(c)},{cmath.phase(c)*180/pi},color{color})'
 class Matrix(object):
     def __init__(self, data: (list, int) = None, size_i: int = None, size_j: int = None):
         if data is None and size_i is None and size_j is None:
