@@ -1,0 +1,12 @@
+function [b_new,a_new]= overshoot(b,a,goal)
+    if ~length(a)==2
+        error('o sistema nao é de segunda ordem');
+    end
+    ganho = b(1);%multiplicador do sinal
+    zeta = (log(goal)/pi)^2;
+    zeta = zeta/(1+zeta);
+    
+    a = a/a(1);
+    z = a(2)/(2*sqrt(a(3)));
+    M_p = exp(-pi*z/(sqrt(1-z^2)));
+end

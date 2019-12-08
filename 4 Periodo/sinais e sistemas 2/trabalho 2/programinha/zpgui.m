@@ -23,17 +23,13 @@ function varargout = zpgui(varargin)
 
  
 global zh ph Lresp Nfft b a z h Y
-global ax1 ax2 ax3  z_surface_CameraPos z_surface_CameraUpVec surface_display_opts
+global ax1 ax2 ax3 ax4 z_surface_CameraPos z_surface_CameraUpVec surface_display_opts
  
 if nargin == 0
     action = 'init';
-    clc;
-  
-   z = [cip(0.99,150) cip(0.99,-150) cip(0.998,90) cip(0.998,-90) cip(0.5,45) cip(0.5,-45) cip(0.25,170) cip(0.25,-170) cip(0.4,22.5) cip(0.4,-22.5) cip(0.5,120) cip(0.5,-120)]';
-   p = [cip(0.5,147),cip(0.5,87),cip(0.5,-147),cip(0.5,-87)]';
-   %,cip(0.5,153),cip(0.5,93),cip(0.5,-153),cip(0.5,-93)]' ;
-
-    %p= conjugar(p);
+    z = [0.001488+0.9996j,0.001488-0.9996j,-0.00164+0.9994j,-0.00164-0.9994j]';
+%     p =[-0.0001232+0.9695j,-0.0001232-0.9695j,0.0001311+0.971j,0.0001311-0.971j]';
+p=[];
 elseif nargin >= 3
     p = varargin{1}';
     z = varargin{2}';
@@ -44,8 +40,8 @@ end
 if nargin == 3
     jpg_filename = varargin{3};
 end
+
 switch action
- 
     case 'init'
         z_surface_CameraPos=[3.7719  -15.7111  275.3541];
         z_surface_CameraUpVec=[-0.1237    0.5153   23.1286];
@@ -89,8 +85,8 @@ switch action
         %    'callback','zpgui(''toggle_surface_display'')');
  
         subplot(2,2,3)
- 
-        [b,a] = zp2tf(z,p,1);
+       
+        [b,a]=zp2tf(z,p,1);
  
         Nfft = 512;
  
@@ -101,9 +97,11 @@ switch action
         ax2 = gca;
                 
         set(ax2,'xlim',[0 1])
+%         set(ax2,'ylim',[-1 1])
         %set(ax2,'ylim',[max(min(Lresp),0.1) max(Lresp)])
          
         set(ax2,'xtick', [0:1/4:1])
+        
         set(ax2,'xticklabel', {'0','\pi/4','\pi/2','2\pi/3','\pi'})
         %get(ax2,'xticklabel')
         grid on
@@ -111,7 +109,8 @@ switch action
         ylabel('Magnitude (dB) ')
          
         %set(Lresp,'erasemode','xor')
- 
+        clc;
+
         set(zh,'buttondownfcn','zpgui(''zeroclick'')',...
             'markersize',8,'linewidth',1)
         set(ph,'buttondownfcn','zpgui(''poleclick'')',...
@@ -124,36 +123,36 @@ switch action
         set(gcf, 'ToolBar', 'figure');
          
         if(nargin == 3) % create some figures ans save them to a file
-            figure
+            figure;
             set(gcf,'position',  [ 232   387   417   279]);
             plot_z_surface(p,z);
             saveas(gcf, strcat('z_surface_', jpg_filename, '.bmp'), 'bmp');
-            figure
+            figure;
             set(gcf,'position',  [ 232   387   417   279]);
             plot((0:Nfft-1)/Nfft - .5, 20*log10(fftshift(abs(Y))),'linewidth',2);
-            set(gca,'xlim',[0 .5])
+            set(gca,'xlim',[0 .5]);
             grid on
-            xlabel('Normalised Frequency')
-            ylabel('Magnitude (db) ')
+            xlabel('Normalised Frequency');
+            ylabel('Magnitude (db) ');
             saveas(gcf,  strcat('z_response_', jpg_filename, '.bmp'), 'bmp');
-            figure
+            figure;
             set(gcf,'position',  [ 232   387   417   279]);
-            zplaneplot(z,p)
-            ylabel('Imaginary Part')
-            xlabel('Real Part')
+            zplaneplot(z,p);
+            ylabel('Imaginary Part');
+            xlabel('Real Part');
             saveas(gcf, strcat('z_pz_', jpg_filename, '.bmp'),  'bmp');
              
-            figure
-            set(gcf,'position',  [232   605   392    61])
-            b_coeff_vals = poly(z)
-            a_coeff_vals = poly(p)
+            figure;
+            set(gcf,'position',  [232   605   392    61]);
+            b_coeff_vals = poly(z);
+            a_coeff_vals = poly(p);
              
-            text(0.05,0.1 ,strcat('a = [',num2str(a_coeff_vals) ,']'))
-            text(0.05,0.8 ,strcat('b = [',num2str(b_coeff_vals) ,']'))
-            set(gca, 'visible','off')
-            pause(0.1)
+            text(0.05,0.1 ,strcat('a = [',num2str(a_coeff_vals) ,']'));
+            text(0.05,0.8 ,strcat('b = [',num2str(b_coeff_vals) ,']'));
+            set(gca, 'visible','off');
+            pause(0.1);
             saveas(gcf, strcat('z_ba_', jpg_filename, '.bmp'),'bmp');
-            close all
+            close all;
         end
         
         subplot(2,2,4);
@@ -176,7 +175,7 @@ switch action
         end
         zpgui('recompute')
     case 'addzero'
-        if length(zh)>0
+        if ~isempty(zh)
             zh(end+1) =  line(.5,0,'parent',ax1,'buttondownfcn','zpgui(''zeroclick'')',...
                 'markersize',8,'linewidth',1,'marker','o','linestyle','none');
         else
@@ -189,13 +188,13 @@ switch action
     case 'removezero'
         delete(zh(end))
         zh(end)=[];
-        if length(zh)==0
+        if isempty(zh)
             set(gco,'enable','off')
         end
         zpgui('recompute')
  
     case 'addpole'
-        if length(ph)>0
+        if ~isempty(ph)
             ph(end+1) =  line(.5,0,'parent',ax1,'buttondownfcn','zpgui(''poleclick'')',...
                 'markersize',8,'linewidth',1,'marker','x','linestyle','none');
         else
@@ -208,7 +207,7 @@ switch action
     case 'removepole'
         delete(ph(end))
         ph(end)=[];
-        if length(ph)==0
+        if isempty(ph)
             set(gco,'enable','off')
         end
         zpgui('recompute')
@@ -255,7 +254,7 @@ switch action
         set(ax2,'ylimmode','auto')
         ylim = get(ax2,'ylim');
         Y = get(Lresp,'ydata');
-        if ylim(1)>min(Y)-3 | ylim(2)<max(Y)+3
+        if ylim(1)>min(Y)-3 || ylim(2)<max(Y)+3
             set(ax2,'ylim',[min(Y)-3 max(Y)+3])
         end
  
@@ -300,7 +299,7 @@ switch action
         set(ax2,'ylimmode','auto')
         Y = get(Lresp,'ydata');
         ylim = get(ax2,'ylim');
-        if ylim(1)>min(Y)-3 | ylim(2)<max(Y)+3
+        if ylim(1)>min(Y)-3 || ylim(2)<max(Y)+3
             set(ax2,'ylim',[min(Y)-3 max(Y)+3])
         end
  
@@ -353,4 +352,4 @@ switch action
             xlabel('Cannot compute impulse response');
             ylabel('h[n]');
         end
-end
+ end
